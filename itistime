@@ -1,1 +1,6 @@
-print("what up")
+display class
+movement class
+stat update class
+person class
+  subclasses - politician, celebrity, scientist, veteran, businessman, generic citizen
+
