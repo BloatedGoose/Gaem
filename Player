@@ -1,0 +1,9 @@
+class Player(object):
+
+  name = ""
+  weight = 0.0
+  height = 0.0
+  
+  hair = (0,0,0)
+  eye = (0,0,0)
+  race = ""
