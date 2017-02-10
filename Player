@@ -1,8 +1,27 @@
-class Player(object):
+import pygame
 
-  weight = 0.0
-  height = 0.0
-  hair = (0,0,0)
-  eye = (0,0,0)
-  race = ""
-  
+class Person(object):
+    age = 0
+    weight = 0
+    height = 0
+    hair = (0,0,0)
+    eye = (0,0,0)
+    sprite = (300,200,150,90) #placeholder until sprite
+
+    reputation = 50.0
+
+    background = [0 for i in range(4)]
+    policy = [50.0 for i in range(11)]
+
+    def shift(issue, slide):
+        self.policy[issue] += slide
+
+    def update(x, y):
+        sprite = (x, y, 50, 50)
+        pygame.draw.rect(surface, (255,255,255), sprite, 0)
+
+    def opinion(slide):
+        reputation += slide
+
+    def age:
+        
