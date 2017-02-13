@@ -24,4 +24,15 @@ class Person(object):
         reputation += slide
 
     def age:
-        
+    
+    def move(self):
+    if(pygame.get.key_pressed())[pygame.K_w] !=0):
+        self.move_ip(0, -10)
+    if(pygame.get.key_pressed())[pygame.K_a] !=0):
+        self.move_ip(-10, 0)
+    if(pygame.get.key_pressed())[pygame.K_s] !=0):
+        self.move_ip(0, 0)
+    if(pygame.get.key_pressed())[pygame.K_d] !=0):
+        self.move_ip(10, 0)
+
+    
