@@ -1,0 +1,63 @@
+import pygame
+
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+    
+display_height = 700
+display_width = 500
+
+pygame.init()
+size = (display_height, display_width)
+screen = pygame.display.set_mode(size)
+pygame.key.set_repeat(1, 10)
+
+pygame.display.set_caption("Shapes")
+screen.fill(WHITE)
+
+def gameLoop():
+    
+    dog = pygame.Rect(20, 20, 50, 50)
+    
+    done = False
+    clock = pygame.time.Clock()
+
+    upspeed = 0
+    
+    while not done:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+            if(pygame.key.get_pressed()[pygame.K_d] != 0):
+                dog = dog.move(10, 0)
+            #if(pygame.key.get_pressed()[pygame.K_s] != 0):
+                #dog.move_ip(0, 10)
+            if(pygame.key.get_pressed()[pygame.K_w] != 0):
+                if upspeed == 0 and dog.bottom == 480:
+                    upspeed += 10
+            if(pygame.key.get_pressed()[pygame.K_a] != 0):
+                dog.move_ip(-10, 0)
+
+            if dog.right == 0:
+                dog.left = 750
+            elif dog.left == 750:
+                dog.right = 0
+                
+        if (dog.bottom < 480) and (upspeed == 0):
+            dog.bottom += 10
+
+        if upspeed != 0:
+            upspeed -= 1
+            dog.move_ip(0, -5)
+            
+        screen.fill(WHITE)
+
+        pygame.draw.line(screen, BLACK, (0, 480), (700, 480), 1)
+        pygame.draw.rect(screen, BLACK, dog, 0)
+        
+        pygame.display.flip()
+        clock.tick(60)
+
+    pygame.quit()
+    quit()
+
+gameLoop()
